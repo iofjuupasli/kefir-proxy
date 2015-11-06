@@ -1,0 +1,39 @@
+{
+  "name": "kefir-proxy",
+  "version": "0.1.0",
+  "description": "Proxy kefir observables to buses which helps to break circular dependencies",
+  "main": "kefir-proxy.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iofjuupasli/kefir-proxy.git"
+  },
+  "keywords": [
+    "kefir",
+    "proxy",
+    "frp",
+    "observable",
+    "stream",
+    "circular",
+    "bus",
+    "reactive"
+  ],
+  "author": "Tretyak Valery <iofjuupasli@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iofjuupasli/kefir-proxy/issues"
+  },
+  "homepage": "https://github.com/iofjuupasli/kefir-proxy#readme",
+  "devDependencies": {
+    "chai": "^3.4.0",
+    "chai-spies": "^0.7.1",
+    "eslint": "^1.8.0",
+    "mocha": "^2.3.3"
+  },
+  "dependencies": {
+    "kefir": "3",
+    "kefir-bus": "iofjuupasli/kefir-bus"
+  }
+}
