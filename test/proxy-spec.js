@@ -5,6 +5,7 @@ chai.should();
 
 var KefirProxy = require('../kefir-proxy');
 var KefirBus = require('kefir-bus');
+var KefirBusProperty = require('kefir-bus-property');
 
 describe('proxy one bus to another', function () {
     var input = KefirBus();
@@ -72,12 +73,8 @@ describe('proxy array of buses to array of buses', function () {
 });
 
 describe('proxy property', function () {
-    var input = KefirBus({
-        property: true
-    });
-    var output = KefirBus({
-        property: true
-    });
+    var input = KefirBusProperty();
+    var output = KefirBusProperty();
     KefirProxy.proxy(input, output);
 
     it('should emit last value to new subscriber', function () {

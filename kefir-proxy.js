@@ -1,14 +1,26 @@
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         /* global define */
-        define(['kefir', 'kefir-bus'], factory);
+        define([
+            'kefir',
+            'kefir-bus',
+            'kefir-bus-property'
+        ], factory);
     } else if (typeof exports === 'object') {
         /* global module, require */
-        module.exports = factory(require('kefir'), require('kefir-bus'));
+        module.exports = factory(
+            require('kefir'),
+            require('kefir-bus'),
+            require('kefir-bus-property')
+        );
     } else {
-        root.KefirProxy = factory(root.Kefir, root.KefirBus);
+        root.KefirProxy = factory(
+            root.Kefir,
+            root.KefirBus,
+            root.KefirBusProperty
+        );
     }
-}(this, function (Kefir, KefirBus) {
+}(this, function (Kefir, KefirBus, KefirBusProperty) {
     function isObs(v) {
         return v instanceof Kefir.Observable;
     }
@@ -55,7 +67,11 @@
         buses: function buses(list, config) {
             return list.reduce(function (result, v) {
                 if (isString(v)) {
-                    result[v] = KefirBus(config);
+                    if (config && config.property) {
+                        result[v] = KefirBusProperty(config);
+                    } else {
+                        result[v] = KefirBus(config);
+                    }
                     return result;
                 }
                 if (isObj(v)) {

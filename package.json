@@ -1,6 +1,6 @@
 {
   "name": "kefir-proxy",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Proxy kefir observables to buses which helps to break circular dependencies",
   "main": "kefir-proxy.js",
   "scripts": {
@@ -33,7 +33,8 @@
     "mocha": "^2.3.3"
   },
   "dependencies": {
-    "kefir": "3",
-    "kefir-bus": "iofjuupasli/kefir-bus"
+    "kefir": "^3.0.0",
+    "kefir-bus": "^2.0.0",
+    "kefir-bus-property": "^1.0.0"
   }
 }
